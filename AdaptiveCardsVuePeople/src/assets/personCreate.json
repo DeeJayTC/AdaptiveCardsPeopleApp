@@ -1,0 +1,89 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Add a new person",
+            "separator": true,
+            "weight": "Bolder",
+            "color": "Accent"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Name"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Person full name",
+            "id": "name"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Job Title"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Persons's Job Title",
+            "id": "job"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Email"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Person Email",
+            "id": "email"
+        },
+        {
+            "text": "Profile Image",
+            "type": "TextBlock"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "width": "85px",
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "width": "85px",
+                            "height": "85px",
+                            "url": "{$root.creator.profileImage}"
+                        }
+                    ]
+                },
+                {
+                    "width": "stretch",
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "ActionSet",
+                            "actions": [
+                                {
+                                    "type": "Action.Submit",
+                                    "title": "Upload Image"
+                                }
+                            ]
+                        }
+                    ],
+                    "verticalContentAlignment": "Center"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "title": "Create Person",
+                    "type": "Action.Submit",
+                    "id": "submit",
+                    "style": "positive"
+                }
+            ]
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}
