@@ -15,7 +15,8 @@
                             "height": "85px"
                         }
                     ],
-                    "width": "auto"
+                    "width": "85px",
+                    "minHeight": "85px"
                 },
                 {
                     "type": "Column",
@@ -35,7 +36,9 @@
                             "wrap": true
                         }
                     ],
-                    "width": "stretch"
+                    "width": "stretch",
+                    "minHeight": "85px",
+                    "verticalContentAlignment": "Center"
                 }
             ]
         },
@@ -63,5 +66,5 @@
         }
     ],
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-    "version": "1.0"
+    "version": "1.2"
 }

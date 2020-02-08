@@ -8,8 +8,16 @@ const state = {
   };
   
   const mutations = {
-    setAccount(state, account) {
-      state.account = account;
+    updatePerson(state, person) {
+      var existingPerson = state.people.find(p=>p.id == person.id);
+      if(existingPerson) {
+        existingPerson.displayName= person.displayName;
+        existingPerson.jobTitle= person.jobTitle;
+        existingPerson.mail= person.mail;
+        existingPerson.officeLocation= person.officeLocation;
+        existingPerson.businessPhones= [person.businessPhones];
+        existingPerson.image= person.image != '' ? person.image : existingPerson.image;
+      }
     },
   };
   
@@ -17,11 +25,14 @@ const state = {
     setAccount({ commit }, accdata) {
       commit('setAccount', accdata);
     },
+    updatePerson({ commit }, person){
+      commit('updatePerson',person);
+    }
   };
   
   const getters = {
-    getCurrentUser(state) {
-      return !!state.me;
+    getPeople(state) {
+      return state.people;
     },
   };
   

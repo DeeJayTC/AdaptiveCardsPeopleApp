@@ -11,7 +11,7 @@
             <router-link class="nav-link" to="/home">Users</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/create">Add User</router-link>
+             <b-button v-b-modal.modal-1>Add User</b-button>
           </li>
         </ul>
         <form class="form-inline my-2 my-md-0">
@@ -22,17 +22,37 @@
     <router-view style='margin-top:15px;'>
 
     </router-view>
+     
+
+    <b-modal 
+    id="modal-1" 
+    title="Create Person"
+    :cancel-disabled="true"
+    size="lg"
+    :ok-disabled="true">
+      <create-user />
+      <template v-slot:modal-footer>
+        <div/>
+      </template>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import createUser from './views/createOrEditPerson.vue'
 export default {
   name: 'App',
   components: {
-
+    createUser
   },
   data() {
     return {
+    }
+  },
+  methods:{
+    closeModal(){
+      this.$bvModal.hide('modal-1')
+      this.$bvModal.hide('modal-2')
     }
   }
 }

@@ -4,12 +4,9 @@
         <h4>Example People</h4>
       <b-card-group deck>
         <div v-for="person in people" :key="person.id">
-          <b-card class="text-center" style='min-height:340px;min-weight:300px;padding:0 !important;'>
+          <b-card class="text-center" style='min-height:340px;min-weight:400px;margin-top:15px;margin-right:10px;'>
             <template v-slot:footer>
-               <b-button class='noStyle'><i class='fa fa-facebook'></i></b-button>
-               <b-button class='noStyle'><i class='fa fa-twitter'></i></b-button>
-               <b-button class='noStyle'><i class='fa fa-email'></i></b-button>
-                <b-button class='noStyle' style='margin-left:150px;'><i class='fa fa-pencil'></i></b-button>
+               <b-button class='noStyle'  v-on:click='editPerson(person)'  style='margin-left:260px;'><i v-on:click='editPerson(person)' class='fa fa-pencil'></i></b-button>
             </template>
             <adaptive-cards
               :card="card"
@@ -20,30 +17,48 @@
         </div>
       </b-card-group>
     </b-row>
+    <b-modal 
+      id="modal-2" 
+      title="Create Person"
+      :cancel-disabled="true"
+      size="lg"
+      :ok-disabled="true">
+      <create-user :mode="'edit'" :person="currentPerson" />
+      <template v-slot:modal-footer>
+        <div/>
+      </template>
+    </b-modal>
   </div>
 </template>
 
 <script>
 import personCard from '../assets/personCard.json'
-import data from '../sampleData.json'
+import createUser from './createOrEditPerson.vue'
+import { mapState } from'vuex'
 export default {
   name: 'people',
   components: {
-
-  },
-  created(){
-    console.log(personCard);
-  },
-  computed: {
-    card() {
-      return personCard
-    },
-    people(){
-      return data.people
-    }
+    createUser
   },
   data() {
     return {
+      currentPerson: null
+    }
+  },
+  computed: {
+    ...mapState('people',['people']),
+    card() {
+      return personCard
+    }
+  },
+  methods: {
+    editPerson(person){
+      this.currentPerson = person;
+      this.$bvModal.show('modal-2')
+    },
+    closeModal(){
+      this.$bvModal.hide('modal-1')
+      this.$bvModal.hide('modal-2')
     }
   }
 }

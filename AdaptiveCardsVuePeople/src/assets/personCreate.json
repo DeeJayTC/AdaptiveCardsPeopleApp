@@ -3,55 +3,37 @@
     "version": "1.2",
     "body": [
         {
-            "type": "TextBlock",
-            "text": "Add a new person",
-            "separator": true,
-            "weight": "Bolder",
-            "color": "Accent"
-        },
-        {
-            "type": "TextBlock",
-            "text": "Name"
-        },
-        {
-            "type": "Input.Text",
-            "placeholder": "Person full name",
-            "id": "name"
-        },
-        {
-            "type": "TextBlock",
-            "text": "Job Title"
-        },
-        {
-            "type": "Input.Text",
-            "placeholder": "Persons's Job Title",
-            "id": "job"
-        },
-        {
-            "type": "TextBlock",
-            "text": "Email"
-        },
-        {
-            "type": "Input.Text",
-            "placeholder": "Person Email",
-            "id": "email"
-        },
-        {
-            "text": "Profile Image",
-            "type": "TextBlock"
-        },
-        {
             "type": "ColumnSet",
             "columns": [
                 {
-                    "width": "85px",
+                    "width": "stretch",
                     "type": "Column",
                     "items": [
                         {
-                            "type": "Image",
-                            "width": "85px",
-                            "height": "85px",
-                            "url": "{$root.creator.profileImage}"
+                            "text": "Basic Data",
+                            "type": "TextBlock",
+                            "size": "Medium",
+                            "weight": "Bolder"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Name"
+                        },
+                        {
+                            "type": "Input.Text",
+                            "placeholder": "Person full name",
+                            "value": "{$root.displayName}",
+                            "id": "name"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Job Title"
+                        },
+                        {
+                            "type": "Input.Text",
+                            "placeholder": "Persons's Job Title",
+                            "value": "{$root.jobTitle}",
+                            "id": "job"
                         }
                     ]
                 },
@@ -60,27 +42,71 @@
                     "type": "Column",
                     "items": [
                         {
-                            "type": "ActionSet",
-                            "actions": [
-                                {
-                                    "type": "Action.Submit",
-                                    "title": "Upload Image"
-                                }
-                            ]
+                            "text": "Contact Details",
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "size": "Medium"
+                        },
+                        {
+                            "text": "Email",
+                            "type": "TextBlock"
+                        },
+                        {
+                            "placeholder": "*@*.com",
+                            "type": "Input.Text",
+                            "value": "{$root.mail}",
+                            "id": "email"
+                        },
+                        {
+                            "text": "Business Phone",
+                            "type": "TextBlock"
+                        },
+                        {
+                            "placeholder": "+1 223 546",
+                            "value": "{$root.businessPhones[0]}",
+                            "type": "Input.Text",
+                            "id": "phone"
                         }
-                    ],
-                    "verticalContentAlignment": "Center"
+                    ]
                 }
             ]
+        },
+        {
+            "text": "Office",
+            "type": "TextBlock"
+        },
+        {
+            "placeholder": "Building Number",
+            "type": "Input.Text",
+            "value": "{$root.officeLocation}",
+            "id": "office"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Profile Image"
+        },
+        {
+            "placeholder": "Placeholder text",
+            "type": "Input.Text",
+            "id": "image"
         },
         {
             "type": "ActionSet",
             "actions": [
                 {
-                    "title": "Create Person",
+                    "title": "Save",
                     "type": "Action.Submit",
                     "id": "submit",
-                    "style": "positive"
+                    "style": "positive",
+                    "data": {
+                        "personId": "{$root.id}"
+                    }
+                },
+                {
+                    "title": "Cancel",
+                    "type": "Action.Submit",
+                    "id": "cancel",
+                    "style": "negative"
                 }
             ]
         }
