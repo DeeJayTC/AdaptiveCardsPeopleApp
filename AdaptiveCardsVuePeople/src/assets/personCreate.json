@@ -1,6 +1,6 @@
 {
     "type": "AdaptiveCard",
-    "version": "1.2",
+    "version": "1.3",
     "body": [
         {
             "type": "ColumnSet",
@@ -16,23 +16,17 @@
                             "weight": "Bolder"
                         },
                         {
-                            "type": "TextBlock",
-                            "text": "Name"
-                        },
-                        {
+                            "label": "Name",
                             "type": "Input.Text",
                             "placeholder": "Person full name",
-                            "value": "{$root.displayName}",
+                            "value": "${$root.displayName}",
                             "id": "name"
                         },
                         {
-                            "type": "TextBlock",
-                            "text": "Job Title"
-                        },
-                        {
+                            "label": "Job Title",
                             "type": "Input.Text",
                             "placeholder": "Persons's Job Title",
-                            "value": "{$root.jobTitle}",
+                            "value": "${$root.jobTitle}",
                             "id": "job"
                         }
                     ]
@@ -48,22 +42,16 @@
                             "size": "Medium"
                         },
                         {
-                            "text": "Email",
-                            "type": "TextBlock"
-                        },
-                        {
+                            "label": "Email",
                             "placeholder": "*@*.com",
                             "type": "Input.Text",
-                            "value": "{$root.mail}",
+                            "value": "${$root.mail}",
                             "id": "email"
                         },
                         {
-                            "text": "Business Phone",
-                            "type": "TextBlock"
-                        },
-                        {
+                            "label": "Business Phone",
                             "placeholder": "+1 223 546",
-                            "value": "{$root.businessPhones[0]}",
+                            "value": "${$root.businessPhones[0]}",
                             "type": "Input.Text",
                             "id": "phone"
                         }
@@ -72,20 +60,14 @@
             ]
         },
         {
-            "text": "Office",
-            "type": "TextBlock"
-        },
-        {
+            "label": "Office",
             "placeholder": "Building Number",
             "type": "Input.Text",
-            "value": "{$root.officeLocation}",
+            "value": "${$root.officeLocation}",
             "id": "office"
         },
         {
-            "type": "TextBlock",
-            "text": "Profile Image"
-        },
-        {
+            "label": "Profile Image",
             "placeholder": "Placeholder text",
             "type": "Input.Text",
             "id": "image"
@@ -99,7 +81,7 @@
                     "id": "submit",
                     "style": "positive",
                     "data": {
-                        "personId": "{$root.id}"
+                        "personId": "${$root.id}"
                     }
                 },
                 {

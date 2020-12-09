@@ -19,7 +19,9 @@ export default {
               displayName: "",
               jobTitle: "",
               image: "",
-              email: ""
+              mail: "",
+              businessPhones: [""],
+              officeLocation: "",
           }
      }
     },

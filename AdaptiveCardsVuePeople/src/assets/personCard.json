@@ -9,7 +9,7 @@
                     "items": [
                         {
                             "type": "Image",
-                            "url": "{image}",
+                            "url": "${$root.image}",
                             "size": "Medium",
                             "width": "85px",
                             "height": "85px"
@@ -24,14 +24,14 @@
                         {
                             "type": "TextBlock",
                             "weight": "Bolder",
-                            "text": "{displayName}",
+                            "text": "${$root.displayName}",
                             "wrap": true,
                             "size": "Large"
                         },
                         {
                             "type": "TextBlock",
                             "spacing": "None",
-                            "text": "{jobTitle}",
+                            "text": "${$root.jobTitle}",
                             "isSubtle": true,
                             "wrap": true
                         }
@@ -44,7 +44,7 @@
         },
         {
             "type": "TextBlock",
-            "text": "{mail}",
+            "text": "${$root.mail}",
             "wrap": true
         },
         {
@@ -52,19 +52,15 @@
             "facts": [
                 {
                     "title": "Office Location",
-                    "value": "{officeLocation}"
-                },
-                {
-                    "title": "Mobile",
-                    "value": "{mobilePhone}"
+                    "value": "${$root.officeLocation}"
                 },
                 {
                     "title": "BusinessPhone",
-                    "value": "{businessPhones[0]}"
+                    "value": "${$root.businessPhones[0]}"
                 }
             ]
         }
     ],
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-    "version": "1.2"
+    "version": "1.3"
 }
